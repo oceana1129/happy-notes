@@ -1,7 +1,9 @@
 import Note from "../models/Note.js"
 
 // get
-export async function getAllNotes (req, res) {
+// note, if you are not using a param like "req" 
+// naming convention just turn it into a "_"
+export async function getAllNotes (_, res) {
     try {
         // .find() will give you all the notes
         // use .find({id})
@@ -18,7 +20,7 @@ export async function getAllNotes (req, res) {
 export async function getNoteById (req, res) {
     try {
         // .find() will give you all the notes
-        // use .find({id})
+        // use .find({id}) to get specific id
         const note = await Note.findById(req.params.id)
         res.status(200).json(note)
     }
